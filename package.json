@@ -1,7 +1,12 @@
 {
   "name": "web3-encrypt",
   "version": "1.0.0",
-  "description": "",
+  "description": "Provides methods for symmetric encryption/decryption using Ethereum addresses.",
+  "homepage": "https://github.com/d1ll0n/web3-encrypt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d1ll0n/web3-encrypt"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
