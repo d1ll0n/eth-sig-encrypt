@@ -1,6 +1,6 @@
 {
   "name": "web3-encrypt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides methods for symmetric encryption/decryption using Ethereum addresses.",
   "homepage": "https://github.com/d1ll0n/web3-encrypt",
   "repository": {

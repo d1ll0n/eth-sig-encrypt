@@ -16,7 +16,9 @@ npm install web3-encrypt
 ## Usage
 
 ```js
-const { Web3Encryption, web3Encrypt, web3Decrypt, constructWeb3 } = require('web3-encrypt')
+const { 
+  Web3Encryption, web3Encrypt, web3Decrypt, constructWeb3 
+} = require('web3-encrypt')
 
 /*
 constructWeb3 takes an http provider url and returns a web3 instance
