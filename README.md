@@ -93,7 +93,7 @@ Calls web3Decrypt() using the Web3Encryption instance properties or the overridd
 **Returns**: `Promise<string>` Cipher text after encryption
 
 # Web3Encryption.decrypt(cipher, options)
-Calls web3Encrypt() using the Web3Encryption instance properties or the overridden options
+Calls web3Decrypt() using the Web3Encryption instance properties or the overridden options
 **Params**
 
 - cipher `string` - The ciphertext to decrypt
