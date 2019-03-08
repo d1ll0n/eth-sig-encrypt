@@ -52,18 +52,6 @@ class Web3Encryption {
   }
 }
 
-const web3 = constructWeb3('https://mainnet.infura.io/v3');
-const account = web3.eth.accounts.create();
-const message = 'hello crypto boys'
-const salt = 'special-salt'
-async function testCryptoFunctions() {
-  const cipher = await web3Encrypt(web3, account, message, salt)
-  console.log(`cipher from encrypt function: ${cipher}`)
-  const decipher = await web3Decrypt(web3, account, cipher, salt)
-  console.log(`deciphered message: ${decipher}`)
-  console.log(`deciphered message ${decipher == message ? 'matches' : 'does not match'} message`)
-}   
-testCryptoFunctions()
 module.exports = {
   Web3Encryption,
   web3Encrypt,
