@@ -1,6 +1,6 @@
 {
   "name": "web3-encrypt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Provides methods for symmetric encryption/decryption using Ethereum addresses.",
   "homepage": "https://github.com/d1ll0n/web3-encrypt",
   "repository": {
@@ -11,10 +11,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Dillon Kellar",
   "license": "GPL-3.0-only",
   "dependencies": {
     "ethereumjs-util": "^6.1.0",
+    "scrypt": "^6.0.3",
     "web3": "^1.0.0-beta.48"
   }
 }
