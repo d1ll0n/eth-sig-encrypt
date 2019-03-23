@@ -1,11 +1,11 @@
 {
-  "name": "web3-encrypt",
+  "name": "eth-sig-encrypt",
   "version": "1.0.2",
   "description": "Provides methods for symmetric encryption/decryption using Ethereum addresses.",
-  "homepage": "https://github.com/d1ll0n/web3-encrypt",
+  "homepage": "https://github.com/d1ll0n/eth-sig-encrypt",
   "repository": {
     "type": "git",
-    "url": "https://github.com/d1ll0n/web3-encrypt"
+    "url": "https://github.com/d1ll0n/eth-sig-encrypt"
   },
   "main": "index.js",
   "scripts": {

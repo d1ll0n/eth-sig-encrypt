@@ -10,7 +10,7 @@ function getSymmetricKey(web3, account, salt) {
   return signMsg(web3, account, salt)
 }
 
-async function web3Encrypt(web3, account, msg, salt) {
+async function sigEncrypt(web3, account, msg, salt) {
   let key = await getSymmetricKey(web3, account, salt)
   key = key.signature
   const data = encode(msg)
@@ -18,7 +18,7 @@ async function web3Encrypt(web3, account, msg, salt) {
   return cipher
 }
 
-async function web3Decrypt(web3, account, cipher, salt) {
+async function sigDecrypt(web3, account, cipher, salt) {
   let key = await getSymmetricKey(web3, account, salt)
   key = key.signature
   const data = decrypt(cipher, key)
@@ -33,7 +33,7 @@ async function web3Decrypt(web3, account, cipher, salt) {
 
 const constructWeb3 = providerUrl => new Web3(new Web3.providers.HttpProvider(providerUrl))
 
-class Web3Encryption {
+class EthSigEncryption {
   constructor(web3, account, salt) {
     if (typeof web3 == 'string') this.web3 = constructWeb3(web3)
     else this.web3 = web3
@@ -43,19 +43,19 @@ class Web3Encryption {
 
   async encrypt(message, options) {
     const { web3, account, salt } = options ? options : this
-    return web3Encrypt(web3, account, message, salt)
+    return sigEncrypt(web3, account, message, salt)
   }
 
   async decrypt(cipher, options) {
     const { web3, account, salt } = options ? options : this
-    return web3Decrypt(web3, account, cipher, salt)
+    return sigDecrypt(web3, account, cipher, salt)
   }
 }
 
 module.exports = {
-  Web3Encryption,
-  web3Encrypt,
-  web3Decrypt,
+  EthSigEncryption,
+  sigEncrypt,
+  sigDecrypt,
   getSymmetricKey,
   signMsg,
   encrypt,

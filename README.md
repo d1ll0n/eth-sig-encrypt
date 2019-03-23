@@ -1,5 +1,5 @@
-# web3-encrypt
-Provides methods for symmetric encryption/decryption using Ethereum addresses.
+# eth-sig-encrypt
+Provides methods for symmetric encryption/decryption using Ethereum signatures.
 
 Usually when we use a web3 provider on a browser, such as MetaMask, Fortmatic, Bitski, etc., we do not have access to the private keys of accounts. Since we may want some secure mechanism for a user to store data on a server and retrieve it later, we need a workaround. 
 
@@ -10,19 +10,19 @@ The method employed in this library is to take some arbitrary salt which the cli
 ### Node
 
 ```bash
-npm install web3-encrypt
+npm install eth-sig-encrypt
 ```
 
 ## Usage
 
 ```js
 const { 
-  Web3Encryption, web3Encrypt, web3Decrypt, constructWeb3 
-} = require('web3-encrypt')
+  EthSigEncryption, sigEncrypt, sigDecrypt, constructWeb3 
+} = require('eth-sig-encrypt')
 
 /*
 constructWeb3 takes an http provider url and returns a web3 instance
-but you can provide your own Web3 object to Web3Encryption
+but you can provide your own Web3 object to EthSigEncryption
 */
 
 const web3 = constructWeb3('https://mainnet.infura.io/v3');
@@ -31,9 +31,9 @@ const message = 'hello crypto boys'
 const salt = 'special-salt'
 
 async function testCryptoFunctions() {
-    const cipher = await web3Encrypt(web3, account, message, salt)
+    const cipher = await sigEncrypt(web3, account, message, salt)
     console.log(`cipher from encrypt function: ${cipher}`)
-    const decipher = await web3Decrypt(web3, account, cipher, salt)
+    const decipher = await sigDecrypt(web3, account, cipher, salt)
     console.log(`deciphered message: ${decipher}`)
     console.log(`deciphered message ${decipher == message ? 'matches' : 'does not match'} original`)
 }   
@@ -45,10 +45,10 @@ testCryptoFunctions()
 `
 
 async function testCryptoObject() {
-    const w3crypto = new Web3Encryption(web3, account, salt)
-    const cipher = await w3crypto.encrypt(message)
+    const sigCrypto = new EthSigEncryption(web3, account, salt)
+    const cipher = await sigCrypto.encrypt(message)
     console.log(`cipher from encrypt function: ${cipher}`)
-    const decipher = await w3crypto.decrypt(cipher)
+    const decipher = await sigCrypto.decrypt(cipher)
     console.log(`deciphered message: ${decipher}`)
     console.log(`deciphered message ${decipher == message ? 'matches' : 'does not match'} original`)
 }
@@ -60,7 +60,7 @@ testCryptoObject()
 `
 ```
 
-# web3Encrypt(web3, account, message, salt)
+# sigEncrypt(web3, account, message, salt)
 
 **Params**
 
@@ -71,7 +71,7 @@ testCryptoObject()
 
 **Returns**: `Promise<string>` Cipher text after encryption
 
-# web3Decrypt(web3, account, cipher, salt)
+# sigDecrypt(web3, account, cipher, salt)
 
 **Params**
 
@@ -82,8 +82,8 @@ testCryptoObject()
 
 **Returns**: `Promise<string>` Decrypted message
 
-# Web3Encryption.encrypt(message, options)
-Calls web3Decrypt() using the Web3Encryption instance properties or the overridden options
+# EthSigEncryption.encrypt(message, options)
+Calls sigEncrypt() using the EthSigEncryption instance properties or the overridden options
 **Params**
 
 - message `string` - The message to encrypt
@@ -94,8 +94,8 @@ Calls web3Decrypt() using the Web3Encryption instance properties or the overridd
 
 **Returns**: `Promise<string>` Cipher text after encryption
 
-# Web3Encryption.decrypt(cipher, options)
-Calls web3Decrypt() using the Web3Encryption instance properties or the overridden options
+# EthSigEncryption.decrypt(cipher, options)
+Calls sigDecrypt() using the EthSigEncryption instance properties or the overridden options
 **Params**
 
 - cipher `string` - The ciphertext to decrypt
