@@ -1,6 +1,6 @@
 {
   "name": "eth-sig-encrypt",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Provides methods for symmetric encryption/decryption using Ethereum addresses.",
   "homepage": "https://github.com/d1ll0n/eth-sig-encrypt",
   "repository": {
